@@ -6,9 +6,6 @@ console.log('Did ' + visitorName + ' want to play the guessing game? ' + visitor
 
 if (visitorWantsToPlay === 'Y' || visitorWantsToPlay === 'YES')
 {
-  //alert('Ok, ' + visitorName + ', whatever :/. We will play it anyway!');
-//};
-
   var question1 = prompt('My goal is to become a software developer in python (Y/N)').toUpperCase();
   console.log(visitorName + '\s answer to the question was ' + question1);
 
