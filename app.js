@@ -111,18 +111,23 @@ while(attemptFruits < 7){
   console.log('Question 7. Attempt number ' + attemptFruits);
   var question7 = prompt('You have ' + (7 - attemptFruits) + ' attempts left. Enter a fruit.').toLowerCase();
   console.log(visitorName + '\'s response: ' + question7);
+  var gotRightAnswer = false; //indicates whether the user got a right answer
   for (var i = 0; i < favoriteFruits.length; i++){
     if(question7 === favoriteFruits[i]){
       alert('Yes! I love ' + favoriteFruits[i] + 's! They are delicious! My favorite fruits are ' + favoriteFruits.toString() + '. \n\nPress OK to continue');
       rightAnswers++;
-      attemptFruits = 8;
+      gotRightAnswer = true;
+      break; //break from the for - loop
     }
   }
-  //break;
-  if(attemptFruits < 7){
+  if(gotRightAnswer){
+    break; //break from the while - loop if got the right answer
+  }else if(attemptFruits < 7){
     alert('Nope! \n\nPress OK to continue');
     attemptFruits++;
-  }else if(attemptFruits === 7){
+  }
+
+  if(attemptFruits === 7){
     alert('Sorry, you have no more attempts left. My favorite fruits are ' + favoriteFruits.toString() + '.');
   }
 }
