@@ -1,65 +1,102 @@
-var visitorName = prompt('Hi! Welcome to my page! What is your name?');
+var visitorName = prompt('Hi! Welcome to my page!\nWhat is your name?');
 console.log('Visitor Name is ' + visitorName);
-alert(visitorName + ', let\'s play a guessing game about me!');
+alert('Nice to meet you, ' + visitorName + '!\nLet\'s play a guessing game about me! \n\nPress OK to continue.');
 
-var question1 = prompt('My goal is to become a software developer in python (Y/N)').toUpperCase();
-console.log(visitorName + '\'s answer to the question1 was ' + question1);
+var rightAnswers = 0;
 
-if (question1 === 'Y' || question1 === 'YES')
+var question1 = prompt('I was born and raised in Russia. Y/N?').toUpperCase();
+console.log(visitorName + '\'s answer to the question2 was ' + question1);
+
+if (question1[0] === 'Y')
 {
-  alert(visitorName + ', you got it right!');
+  alert(visitorName + ', you got it right! My hometown, Chelyabinsk, \
+is the place where a meteor fell in February of 2013!\
+It entered the atmosphere with a speed of 42,900 mph! \n\nPress OK to continue.');
+  rightAnswers++;
 }
 else
 {
-  alert(visitorName + ', you got it wrong :(');
+  alert(visitorName + ', you got it wrong :( \n\nPress OK to continue.');
 }
 
-var question2 = prompt('I am from Russia (Y/N)').toUpperCase();
-console.log(visitorName + '\'s answer to the question2 was ' + question2);
+var question2 = prompt('I studied Industrial Engineering in Russia. Y/N?').toUpperCase();
+console.log(visitorName + '\'s answer to the question4 was ' + question2);
 
-if (question2 === 'Y' || question2 === 'YES')
+if (question2[0] === 'Y')
 {
-  alert(visitorName + ', you got it right!');
+  alert(visitorName + ', you got it right! \n\nPress OK to continue.');
+  rightAnswers++;
 }
 else
 {
-  alert(visitorName + ', you got it wrong :(');
+  alert(visitorName + ', you got it wrong :( \n\nPress OK to continue.');
 }
 
-var question3 = prompt('I moved to the US in 2006 (Y/N)').toUpperCase();
-console.log(visitorName + '\'s answer to the question3 was ' + question3);
+var question3 = prompt('I majored in Medical Lab Science at the University of Washington. Y/N?').toUpperCase();
+console.log(visitorName + '\'s answer to the question5 was ' + question3);
 
-if (question3 === 'Y' || question3 === 'YES')
+if (question3[0] === 'Y')
 {
-  alert(visitorName + ', you got it right!');
+  alert(visitorName + ', you got it right! I can diagnose Malaria or leukemia by looking at a blood smear! \n\nPress OK to continue.');
+  rightAnswers++;
 }
 else
 {
-  alert(visitorName + ', you got it wrong :(');
+  alert(visitorName + ', you got it wrong :( \n\nPress OK to continue.');
 }
 
-var question4 = prompt('I studied Industrial Engineering in Russia (Y/N)').toUpperCase();
-console.log(visitorName + '\'s answer to the question4 was ' + question4);
+var question4 = prompt('My goal is to become a software developer in python. Y/N?').toUpperCase();
+console.log(visitorName + '\'s answer to the question1 was ' + question4);
 
-if (question4 === 'Y' || question4 === 'YES')
+if (question4[0] === 'Y')
 {
-  alert(visitorName + ', you got it right!');
+  alert(visitorName + ', you got it right! \n\nPress OK to continue.');
+  rightAnswers++;
+}else{
+  alert(visitorName + ', you got it wrong :( \n\nPress OK to continue.');
+}
+
+var question5 = prompt('I love hiking and backpacking. Y/N?').toUpperCase();
+console.log(visitorName + '\'s answer to the question3 was ' + question5);
+
+if (question5[0] === 'Y')
+{
+  alert(visitorName + ', you got it right! I am getting ready to clime Mt.Rainier this July! \n\nPress OK to continue.');
+  rightAnswers++;
 }
 else
 {
-  alert(visitorName + ', you got it wrong :(');
+  alert(visitorName + ', you got it wrong :( \n\nPress OK to continue.');
 }
 
-var question5 = prompt('I majored in Medical Lab Science (Y/N)').toUpperCase();
-console.log(visitorName + '\'s answer to the question5 was ' + question5);
+alert(visitorName + ', can you guess how many letters there are \
+in the Russian alphabet? Hint: it\'s a number between 25 and 35. Good luck! \n\nPress OK to continue.');
+var attempt = 1;
 
-if (question5 === 'Y' || question5 === 'YES')
-{
-  alert(visitorName + ', you got it right!');
-}
-else
-{
-  alert(visitorName + ', you got it wrong :(');
+while(attempt < 5){
+  console.log('Question 6. Attempt number ' + attempt);
+  var question6 = parseInt(prompt(visitorName + ', you have ' + (5 - attempt) + ' attempts left. Please enter a number.'));
+  console.log(visitorName + '\'s response: ' + question6);
+  if(isNaN(question6)){
+    alert('Oops, must be a number. \n\nPress OK to continue.');
+    continue;
+  }
+  if(question6 === 33){
+    alert('Yes! You got it right, ' + visitorName + ', Russian alphabet has 33 letters. \n\nPress OK to continue.');
+    rightAnswers++;
+    break;
+  }else if(question6 > 33){
+    alert('Your guess is too high. \n\nPress OK to continue.');
+    attempt++;
+  }else if(question6 < 33){
+    alert('Your guess is too low. \n\nPress OK to continue.');
+    attempt++ ;
+  }
 }
 
-alert('See you later, ' + visitorName);
+if(attempt === 5 && question6 !== 33){
+  alert('Sorry, ' + visitorName + ', you have no more attempts left. \
+\nRussian alphabet has 33 letters! \n\nPress OK to continue');
+}
+alert('I hope you enjoyed the game. You got ' + rightAnswers + ' out of 7 questions right. ' + visitorName + ', thank you for visiting my page! \n\nPress OK to continue.');
+console.log(visitorName + ' got ' + rightAnswers + ' out of 7 questions right.');
