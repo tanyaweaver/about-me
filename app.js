@@ -62,30 +62,36 @@ else
   alert(visitorName + ', you got it wrong :(');
 }
 
-var question6 = prompt(visitorName + ', can you guess how many letters there are \
-in the Russian alphabet? Choose between 25 and 35. You have 4 attempts. Good luck!');
+var question6 = parseInt(prompt(visitorName + ', can you guess how many letters there are \
+in the Russian alphabet? Choose between 25 and 35. You have 4 attempts. Good luck!'));
 var attempt = 1;
 
 while(attempt < 5){
-  if(parseInt(question6) === 33){
+  if(question6 === 33){
     console.log(visitorName + '\'s response to question6, attempt number' + attempt + ', was: ' + question6);
     alert('Yes! You got it right, ' + visitorName + ', Russian alphabet has 33 letters. \
-    Press OK to continue.');
-    attempt = 10;
-  }else if(parseInt(question6) > 33){
+ Press OK to continue.');
+    attempt = 5;
+  }else if(question6 > 33){
     console.log(visitorName + '\'s response for question6, ' + attempt + ' was: ' + question6);
     question6 = prompt('Oops, ' + visitorName + ', you guessed to high.\
-    You have ' + (4 - attempt) + ' attempts left');
+ You have ' + (4 - attempt) + ' attempts left. Press OK to continue.');
     attempt++;
-  }else if(parseInt(question6) < 33){
+  }else{
     console.log(visitorName + '\'s response for question6, ' + attempt + ' was: ' + question6);
-    question6 = prompt('Oops, ' + visitorName + ', you guessed to low.\
-    You have ' + (4 - attempt) + ' attempts left');
-    attempt++ ;
+    if(attempt < 4){
+      question6 = prompt('Oops, ' + visitorName + ', you guessed to low.\
+ You have ' + (4 - attempt) + ' attempts left. Try again.');
+      attempt++ ;
+    }else{
+      alert('Nope! Sorry, ' + visitorName + ', you have no more attempts. Russian alphabet has 33 letters!\
+ Press OK to continue');
+      attempt++ ;
+    }
   }
 }
 
-if(attempt === 5){
-  alert('Russian alphabet has 33 letters! Press OK to continue');
-}
+// if(attempt === 5){
+//   alert('Russian alphabet has 33 letters! Press OK to continue');
+// }
 alert('See you later, ' + visitorName);
