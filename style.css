@@ -1,0 +1,27 @@
+* {
+
+  font-family: 'Libre Baskerville', serif;
+}
+
+body {
+  margin: 200px;
+  background-color: #CFD8DC;
+  border-width: thick;;
+  margin: 10px;
+}
+
+img {
+  float: left;
+  width: 700px;
+  height: 460px;
+}
+
+h1 {
+  background-color: #90A4AE;
+  padding: 15px;
+}
+
+h2 {
+  background-color: #90A4AE;
+  padding: 10px;
+}
